@@ -1,3 +1,11 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { firebaseConfig } from "./firebase-config.js";
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 document.addEventListener('DOMContentLoaded', () => {
     // DOM Elements
     const waitlistForm = document.getElementById('waitlist-form');
@@ -15,6 +23,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const successUserEmail = document.getElementById('success-user-email');
     
     const chatBody = document.getElementById('chat-body');
+
+    // Check if user has already registered on this device
+    const checkExistingRegistration = () => {
+        const registeredEmail = localStorage.getItem('threesixtyai_registered_email');
+        if (registeredEmail) {
+            showError('You have already registered interest on this device.');
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.5';
+            submitBtn.style.cursor = 'not-allowed';
+        }
+    };
 
     // 1. Simulated Conversational Chat Mockup
     const chatDialogue = [
@@ -46,19 +65,17 @@ document.addEventListener('DOMContentLoaded', () => {
     async function runChatSimulation() {
         chatBody.innerHTML = '';
         for (const message of chatDialogue) {
-            // Typing indicator delay
             await sleep(1500);
             await appendChatBubble(message.sender, message.text);
             await sleep(2000);
         }
-        
-        // Loop simulation every 10 seconds after completion
         await sleep(10000);
         runChatSimulation();
     }
 
-    // Start simulation
+    // Start simulation & run device registration check
     runChatSimulation();
+    checkExistingRegistration();
 
     // 2. Form Submission Handling
     waitlistForm.addEventListener('submit', async (e) => {
@@ -104,19 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
         setLoading(true);
 
         try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, company, role, email })
+            // Write directly to Firebase Firestore
+            await addDoc(collection(db, "registrations"), {
+                name: name,
+                company: company,
+                role: role,
+                email: email.toLowerCase(),
+                registeredAt: new Date().toISOString()
             });
 
-            const result = await response.json();
-
-            if (!response.ok) {
-                throw new Error(result.error || 'Something went wrong. Please try again.');
-            }
+            // Prevent resubmissions from this device
+            localStorage.setItem('threesixtyai_registered_email', email.toLowerCase());
 
             // Success State
             successUserName.innerText = name;
@@ -131,7 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
             waitlistForm.reset();
 
         } catch (error) {
-            showError(error.message);
+            console.error('Firebase submission error:', error);
+            showError('Could not save your registration. Please ensure your Firestore security rules are configured and try again.');
         } finally {
             setLoading(false);
         }
@@ -139,6 +155,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Reset Success Card to Form Card
     resetBtn.addEventListener('click', () => {
+        // Clear local storage for registration reuse
+        localStorage.removeItem('threesixtyai_registered_email');
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+        submitBtn.style.cursor = 'pointer';
+        
         successCard.classList.add('hidden');
         waitlistCard.classList.remove('hidden');
     });
