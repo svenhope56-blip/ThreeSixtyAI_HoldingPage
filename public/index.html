@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreeSixtyAI | Enterprise Talent Platform & Conversational 360 Feedback</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ThreeSixtyAI replaces mundane corporate surveys with qualitative, conversation-driven feedback collection. Rebuild trust, protect anonymity, and deliver smart organizational analytics.">
+    <meta name="keywords" content="ThreeSixtyAI, HRTech, 360 Feedback, Performance Appraisals, Professional Development Plan, PDP, AI HR Agent, Employee Anonymity">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="ThreeSixtyAI | Enterprise Talent Platform">
+    <meta property="og:description" content="Replace mundane surveys with qualitative, anonymous conversation-driven feedback. Grounded in 40 years of high-tempo leadership expertise.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Glow Blobs for Premium Aesthetic -->
+    <div class="glow-blob blob-sky"></div>
+    <div class="glow-blob blob-navy"></div>
+
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="header-container">
+            <a href="#" class="logo" id="header-logo">
+                <span class="logo-circle"></span>
+                <span>ThreeSixty<span class="logo-accent">AI</span></span>
+            </a>
+            <div class="header-badge">
+                <span class="badge-dot"></span>
+                <span>B2B Waitlist Active</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-text-container">
+                <div class="trust-pill">
+                    <span class="trust-icon">🛡️</span> Psychological Safety Guaranteed
+                </div>
+                <h1 class="hero-title">
+                    The End of Mundane Surveys.<br>
+                    <span class="gradient-text">The Dawn of Trusted Conversation.</span>
+                </h1>
+                <p class="hero-description">
+                    ThreeSixtyAI is the enterprise talent platform replacing score-based surveys with qualitative, 
+                    agentic-driven anonymous conversations. Grounded in 40 years of high-tempo leadership expertise, 
+                    we turn feedback into personalized growth roadmaps and cultural intelligence.
+                </p>
+
+                <!-- Simulated Interactive Chat Mockup (Stokes immediate product interest) -->
+                <div class="chat-mockup glass-panel">
+                    <div class="chat-header">
+                        <div class="chat-status">
+                            <span class="status-dot animate-pulse"></span>
+                            <span>ThreeSixtyAI Conversational Agent</span>
+                        </div>
+                        <div class="chat-actions">
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                        </div>
+                    </div>
+                    <div class="chat-body" id="chat-body">
+                        <!-- Messages populated by app.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Waitlist Form (Side Container) -->
+            <div class="form-container">
+                <div class="form-card glass-panel" id="waitlist-card">
+                    <div class="form-header">
+                        <h2>Register Your Interest</h2>
+                        <p>Secure an early preview slot for your organization.</p>
+                    </div>
+
+                    <form id="waitlist-form" novalidate>
+                        <!-- Form Error Banner -->
+                        <div class="error-banner hidden" id="form-error"></div>
+
+                        <!-- Inputs -->
+                        <div class="input-group">
+                            <input type="text" id="name" name="name" required placeholder=" ">
+                            <label for="name">Full Name</label>
+                            <span class="input-border"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="company" name="company" required placeholder=" ">
+                            <label for="company">Company Name</label>
+                            <span class="input-border"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" id="role" name="role" required placeholder=" ">
+                            <label for="role">Your Role / Job Title</label>
+                            <span class="input-border"></span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" required placeholder=" ">
+                            <label for="email">Corporate Email Address</label>
+                            <span class="input-border"></span>
+                        </div>
+
+                        <!-- Agreement Checkbox -->
+                        <div class="checkbox-group">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="agree" required>
+                                <span class="checkmark"></span>
+                                <span class="checkbox-label">I agree to the preview terms and confirm this is a corporate request.</span>
+                            </label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="submit-btn" id="submit-btn">
+                            <span class="btn-text">Join Private Waitlist</span>
+                            <span class="btn-loader hidden"></span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Card (Hidden initially) -->
+                <div class="form-card glass-panel success-card hidden" id="success-card">
+                    <div class="success-icon-container">
+                        <svg class="success-svg" viewBox="0 0 52 52">
+                            <circle class="success-circle" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="success-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h2>Interest Registered!</h2>
+                    <p class="success-message">
+                        Thank you, <strong id="success-user-name">Guest</strong>. We have securely saved your request for <strong id="success-user-company">your company</strong>.
+                    </p>
+                    <p class="success-subtext">
+                        A member of the ThreeSixtyAI preview team will reach out to <span id="success-user-email"></span> soon with information about private sandbox access.
+                    </p>
+                    <button class="reset-btn" id="reset-btn">Register Another Account</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Value Section -->
+        <section class="features-section">
+            <div class="features-header">
+                <h2 class="section-title">Designed for Psychological Safety & High Performance</h2>
+                <p class="section-subtitle">A talent platform that replaces friction with meaningful growth roadmaps.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Card 1 -->
+                <div class="feature-card glass-panel">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">💬</div>
+                    <h3>Conversational Feedback Agent</h3>
+                    <p>
+                        No more score sheets. Our AI agent carries out secure, qualitative dialogues with your colleagues, 
+                        probing for constructive, contextual insights tailored to your organization.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="feature-card glass-panel">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">📈</div>
+                    <h3>Synthesized Growth Plans</h3>
+                    <p>
+                        Synthesizes performance appraisals, personal objectives, and 360 qualitative reviews into 
+                        a living, clear Professional Development Plan (PDP) for every employee.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="feature-card glass-panel">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Psychological Safety Guarantee</h3>
+                    <p>
+                        We resolve the employee trust deficit. Complete anonymity is guaranteed with automated 
+                        data sanitization built directly into our pipeline before management reviews insights.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="feature-card glass-panel">
+                    <div class="card-glow"></div>
+                    <div class="feature-icon">🧭</div>
+                    <h3>40 Years of Leadership Wisdom</h3>
+                    <p>
+                        Built upon a framework derived from 40 years of high-tempo, elite leadership and management 
+                        expertise in demanding organizational environments.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p class="copyright">&copy; 2026 ThreeSixtyAI. All rights reserved. Registered interest list secured locally.</p>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">B2B Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Script -->
+    <script src="app.js"></script>
+</body>
+</html>
