@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ThreeSixtyAI | Enterprise Talent Platform & Conversational 360 Feedback</title>
     <!-- SEO Meta Tags -->
-    <meta name="description" content="ThreeSixtyAI replaces mundane corporate surveys with qualitative, conversation-driven feedback collection. Rebuild trust, protect anonymity, and deliver smart organizational analytics.">
+    <meta name="description" content="ThreeSixtyAI replaces mundane corporate surveys with qualitative, conversation-driven feedback collection. Rebuild trust, protect anonymity, and deliver smart organisational analytics.">
     <meta name="keywords" content="ThreeSixtyAI, HRTech, 360 Feedback, Performance Appraisals, Professional Development Plan, PDP, AI HR Agent, Employee Anonymity">
     
     <!-- Open Graph / Social Media -->
@@ -46,16 +46,14 @@
         <section class="hero-section">
             <div class="hero-text-container">
                 <div class="trust-pill">
-                    <span class="trust-icon">🛡️</span> Psychological Safety Guaranteed
+                    <span class="trust-icon">🛡️</span> Anonymity Guaranteed
                 </div>
                 <h1 class="hero-title">
                     The End of Mundane Surveys.<br>
                     <span class="gradient-text">The Dawn of Trusted Conversation.</span>
                 </h1>
                 <p class="hero-description">
-                    ThreeSixtyAI is the enterprise talent platform replacing score-based surveys with qualitative, 
-                    agentic-driven anonymous conversations. Grounded in 40 years of high-tempo leadership expertise, 
-                    we turn feedback into personalized growth roadmaps and cultural intelligence.
+                    ThreeSixtyAI is the enterprise talent platform replacing score based surveys with qualitative and anonymous conversations led by CARA, our Conversation and Reflection Agent. Grounded in 40 years of high tempo leadership expertise, CARA turns peer feedback into personalised growth roadmaps and organisational culture intelligence.
                 </p>
 
                 <!-- Simulated Interactive Chat Mockup (Stokes immediate product interest) -->
@@ -63,7 +61,7 @@
                     <div class="chat-header">
                         <div class="chat-status">
                             <span class="status-dot animate-pulse"></span>
-                            <span>ThreeSixtyAI Conversational Agent</span>
+                            <span>CARA: Conversation & Reflection Agent</span>
                         </div>
                         <div class="chat-actions">
                             <span class="window-dot"></span>
@@ -119,7 +117,7 @@
                             <label class="custom-checkbox">
                                 <input type="checkbox" id="agree" required>
                                 <span class="checkmark"></span>
-                                <span class="checkbox-label">I agree to the preview terms and confirm this is a corporate request.</span>
+                                <span class="checkbox-label">I agree to the <a href="#" id="terms-link" style="color: var(--mancity-sky); text-decoration: underline; cursor: pointer;">preview terms</a> and confirm this is a corporate request.</span>
                             </label>
                         </div>
 
@@ -143,10 +141,46 @@
                     <p class="success-message">
                         Thank you, <strong id="success-user-name">Guest</strong>. We have securely saved your request for <strong id="success-user-company">your company</strong>.
                     </p>
-                    <p class="success-subtext">
+                    <p class="success-subtext" style="margin-bottom: 24px;">
                         A member of the ThreeSixtyAI preview team will reach out to <span id="success-user-email"></span> soon with information about private sandbox access.
                     </p>
-                    <button class="reset-btn" id="reset-btn">Register Another Account</button>
+
+                    <!-- Optional Voluntary Step (Shown on Success Screen) -->
+                    <div class="voluntary-success-container" id="voluntary-success-container">
+                        <div class="voluntary-divider"></div>
+                        <h3>Help us prioritise your access (Optional)</h3>
+                        <form id="voluntary-success-form">
+                            <div class="voluntary-group">
+                                <label for="teamSize">How big is your company or team wishing to use ThreeSixtyAI?</label>
+                                <select id="teamSize" name="teamSize">
+                                    <option value="" disabled selected hidden>Select team size...</option>
+                                    <option value="1-10">1 - 10 people</option>
+                                    <option value="11-50">11 - 50 people</option>
+                                    <option value="51-200">51 - 200 people</option>
+                                    <option value="201-500">201 - 500 people</option>
+                                    <option value="500+">500+ people</option>
+                                </select>
+                            </div>
+
+                            <div class="voluntary-group">
+                                <label for="companyDesc">What type of company or team are you? (Describe it)</label>
+                                <textarea id="companyDesc" name="companyDesc" rows="3" placeholder="e.g. Remote marketing agency, software engineering team..."></textarea>
+                            </div>
+
+                            <button type="submit" class="submit-btn secondary-btn" id="submit-voluntary-btn">
+                                <span class="btn-text">Submit Optional Details</span>
+                                <span class="btn-loader hidden"></span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Voluntary Success Thank You State (Hidden initially) -->
+                    <div class="voluntary-thanks-container hidden" id="voluntary-thanks-container">
+                        <div class="voluntary-divider"></div>
+                        <p class="thanks-message">🎉 Additional details saved. Thank you for your feedback!</p>
+                    </div>
+
+                    <button class="reset-btn" id="reset-btn" style="margin-top: 24px;">Register Another Account</button>
                 </div>
             </div>
         </section>
@@ -154,7 +188,7 @@
         <!-- Product Value Section -->
         <section class="features-section">
             <div class="features-header">
-                <h2 class="section-title">Designed for Psychological Safety & High Performance</h2>
+                <h2 class="section-title">Designed for Rich Qualitative Feedback and High Performance Professional Development</h2>
                 <p class="section-subtitle">A talent platform that replaces friction with meaningful growth roadmaps.</p>
             </div>
 
@@ -163,10 +197,9 @@
                 <div class="feature-card glass-panel">
                     <div class="card-glow"></div>
                     <div class="feature-icon">💬</div>
-                    <h3>Conversational Feedback Agent</h3>
+                    <h3>Conversational Feedback (CARA)</h3>
                     <p>
-                        No more score sheets. Our AI agent carries out secure, qualitative dialogues with your colleagues, 
-                        probing for constructive, contextual insights tailored to your organization.
+                        No more score sheets. CARA carries out secure, qualitative dialogues with your colleagues. She probes for constructive, contextual insights tailored to your organisation. Analysed feedback is then provided to management to inform performance reviews.
                     </p>
                 </div>
 
@@ -174,9 +207,9 @@
                 <div class="feature-card glass-panel">
                     <div class="card-glow"></div>
                     <div class="feature-icon">📈</div>
-                    <h3>Synthesized Growth Plans</h3>
+                    <h3>Synthesised Growth Plans</h3>
                     <p>
-                        Synthesizes performance appraisals, personal objectives, and 360 qualitative reviews into 
+                        Synthesises performance appraisals, personal objectives, and 360 qualitative reviews into 
                         a living, clear Professional Development Plan (PDP) for every employee.
                     </p>
                 </div>
@@ -185,10 +218,10 @@
                 <div class="feature-card glass-panel">
                     <div class="card-glow"></div>
                     <div class="feature-icon">🛡️</div>
-                    <h3>Psychological Safety Guarantee</h3>
+                    <h3>Anonymity Guarantee</h3>
                     <p>
                         We resolve the employee trust deficit. Complete anonymity is guaranteed with automated 
-                        data sanitization built directly into our pipeline before management reviews insights.
+                        data sanitisation built directly into our pipeline before management reviews insights.
                     </p>
                 </div>
 
@@ -198,8 +231,8 @@
                     <div class="feature-icon">🧭</div>
                     <h3>40 Years of Leadership Wisdom</h3>
                     <p>
-                        Built upon a framework derived from 40 years of high-tempo, elite leadership and management 
-                        expertise in demanding organizational environments.
+                        Built upon a framework derived from 40 years of high tempo, elite leadership and management 
+                        expertise in demanding organisational environments.
                     </p>
                 </div>
             </div>
@@ -211,11 +244,98 @@
         <div class="footer-container">
             <p class="copyright">&copy; 2026 ThreeSixtyAI. All rights reserved. Registered interest list secured locally.</p>
             <div class="footer-links">
-                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link" id="privacy-link">Privacy Policy</a>
                 <a href="#" class="footer-link">B2B Terms</a>
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-body">
+                <h2>Privacy Notice</h2>
+                <p>This privacy notice explains how ThreeSixtyAI ("we", "us", or "our") collects and processes your personal data when you sign up for our pre-launch waitlist. We are committed to protecting your privacy and ensuring your data is handled securely and in compliance with UK data protection laws (UK GDPR).</p>
+                
+                <h3>1. What Data We Collect</h3>
+                <p>When you register your interest on our holding page, we collect only the information necessary to keep you updated about our launch:</p>
+                <ul>
+                    <li>Your Name</li>
+                    <li>Your Corporate Email Address</li>
+                    <li>Your Company Name and Job Title</li>
+                    <li>Any voluntary details you choose to provide (Team Size and Company Description)</li>
+                </ul>
+
+                <h3>2. How We Use Your Data</h3>
+                <p>We will use your personal data strictly for the following purposes:</p>
+                <ul>
+                    <li>To send you updates regarding the development and official launch of our platform.</li>
+                    <li>To invite you to early access or beta testing programs (if applicable).</li>
+                </ul>
+                <p><strong>Our Lawful Basis:</strong> We process this data based on your consent, which you provide when submitting your details on our waitlist form. You can withdraw this consent at any time.</p>
+
+                <h3>3. Where Your Data is Stored</h3>
+                <p>Your data is stored securely using Google Cloud infrastructure (Firebase). To guarantee data sovereignty and security, your personal information is hosted exclusively on servers located in London, United Kingdom (europe-west2). It does not leave the UK.</p>
+
+                <h3>4. Data Sharing and Protection</h3>
+                <p>We will never sell, rent, or trade your personal data to third parties. Access to your information is strictly limited to authorized personnel within our company who need it to communicate with you.</p>
+
+                <h3>5. Data Retention</h3>
+                <p>We will hold your details only for as long as is necessary to fulfill the purpose of notifying you about our launch, or until you request to be removed from our mailing list.</p>
+
+                <h3>6. Your Rights</h3>
+                <p>Under UK data protection law, you have the right to:</p>
+                <ul>
+                    <li>Request access to the personal data we hold about you.</li>
+                    <li>Request correction of any inaccurate or incomplete data.</li>
+                    <li>Request erasure of your personal data (the "right to be forgotten").</li>
+                    <li>Withdraw your consent at any time by contacting us directly.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Terms Modal -->
+    <div id="terms-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <button class="modal-close" id="terms-close">&times;</button>
+            <div class="modal-body">
+                <h2>CARA Beta Testing Program Terms & Conditions</h2>
+                <p>Welcome to the CARA Beta Testing Program (the "Program"). By checking the acceptance box and participating in this Beta, you (the "Tester" or "You") agree to be bound by these Terms and Conditions. These terms govern your early access use of the Conversation and Reflection Agent (CARA).</p>
+                
+                <h3>1. The Beta Service is As Is</h3>
+                <p>You acknowledge that CARA is currently in a prerelease beta testing phase.</p>
+                <ul>
+                    <li>The service is provided on an "as is" and "as available" basis.</li>
+                    <li>It may contain bugs, errors, or experience temporary downtime.</li>
+                    <li>We make no warranties, express or implied, regarding its performance, accuracy, or suitability for formal corporate human resources or personnel decisions during this testing phase.</li>
+                </ul>
+
+                <h3>2. Intellectual Property and Proprietary Rights</h3>
+                <p>All right, title, and interest in and to CARA, including its conversational logic, system architecture, prompts, software code, and user interfaces, remain the exclusive property of ThreeSixtyAI.</p>
+                <ul>
+                    <li>You are granted a limited, revocable, non exclusive, and non transferable license to use the service strictly for beta testing and evaluation purposes.</li>
+                    <li>You agree not to copy, reverse engineer, modify, or attempt to replicate the core mechanisms or prompt designs of CARA.</li>
+                </ul>
+
+                <h3>3. Feedback and Exploitation</h3>
+                <p>We highly value your insights. Any suggestions, ideas, feedback, bug reports, or metadata generated during your participation in the Program, collectively referred to as "Feedback", may be used by us without restriction or compensation to you. You grant us a perpetual, irrevocable, worldwide license to exploit this Feedback to improve and commercialize CARA.</p>
+
+                <h3>4. Confidentiality</h3>
+                <p>Because you are seeing unreleased technology, you agree to keep all aspects of the architecture, performance, user interface designs, and testing experiences of CARA confidential. You may not publish reviews, share screenshots, or discuss the inner workings of CARA publicly or with third parties without our prior written consent.</p>
+
+                <h3>5. Data Privacy and Sovereignty</h3>
+                <p>Any personal data, such as names, email addresses, and interview responses, processed during this Beta will be handled strictly in accordance with our Privacy Policy. All data remains hosted securely on infrastructure located within London, United Kingdom, to ensure strict data protection compliance.</p>
+
+                <h3>6. Limitation of Liability</h3>
+                <p>To the maximum extent permitted by UK law, ThreeSixtyAI shall not be liable for any direct, indirect, incidental, special, or consequential damages arising out of or in connection with your participation in this Beta Program, including but not limited to data loss, system downtime, or business interruption.</p>
+
+                <h3>7. Termination</h3>
+                <p>We reserve the right to modify, suspend, or terminate the Beta Program or your access to CARA at any time, for any reason, without notice. You may also stop participating at any time. Upon termination, your right to use the testing environment ceases immediately.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Custom Script -->
     <script type="module" src="app.js"></script>

@@ -365,7 +365,9 @@ body {
     margin-bottom: 22px;
 }
 
-.input-group input {
+.input-group input,
+.input-group select,
+.input-group textarea {
     width: 100%;
     padding: 14px 16px;
     background-color: rgba(28, 44, 91, 0.15);
@@ -376,6 +378,15 @@ body {
     font-size: 15px;
     outline: none;
     transition: all 0.3s;
+}
+
+.input-group select option {
+    background-color: #0d1425;
+    color: var(--text-primary);
+}
+
+.input-group textarea {
+    resize: vertical;
 }
 
 .input-group label {
@@ -390,7 +401,11 @@ body {
 
 /* Interactive Floating Label */
 .input-group input:focus ~ label,
-.input-group input:not(:placeholder-shown) ~ label {
+.input-group input:not(:placeholder-shown) ~ label,
+.input-group textarea:focus ~ label,
+.input-group textarea:not(:placeholder-shown) ~ label,
+.input-group select:focus ~ label,
+.input-group select.has-value ~ label {
     top: -8px;
     left: 12px;
     font-size: 12px;
@@ -400,9 +415,27 @@ body {
     border-radius: 4px;
 }
 
-.input-group input:focus {
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
     border-color: var(--border-glow);
     box-shadow: 0 0 12px rgba(108, 171, 221, 0.15);
+}
+
+/* Optional section header */
+.optional-section-header {
+    margin-top: 28px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(108, 171, 221, 0.15);
+    padding-bottom: 6px;
+}
+
+.optional-section-header span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--mancity-sky);
+    font-weight: 600;
 }
 
 /* Checkbox Styles */
@@ -742,4 +775,190 @@ body {
 /* Helper Classes */
 .hidden {
     display: none !important;
+}
+
+/* Voluntary Fields (Static Layout to prevent overlapping for wrapped questions) */
+.voluntary-group {
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.voluntary-group label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    line-height: 1.4;
+    text-align: left;
+    display: block;
+    width: 100%;
+}
+
+.voluntary-group select,
+.voluntary-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: rgba(28, 44, 91, 0.2);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* Custom styled dropdown arrow for the select input */
+.voluntary-group select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='%236CABDD' d='M0 0l6 6 6-6z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 12px 8px;
+    padding-right: 40px;
+}
+
+.voluntary-group select option {
+    background-color: #0d1425;
+    color: var(--text-primary);
+}
+
+.voluntary-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.voluntary-group select:focus,
+.voluntary-group textarea:focus {
+    border-color: var(--border-glow);
+    box-shadow: 0 0 12px rgba(108, 171, 221, 0.15);
+}
+
+/* Voluntary Success Panel Styles */
+.voluntary-divider {
+    margin: 24px 0;
+    border-top: 1px solid rgba(108, 171, 221, 0.15);
+}
+
+.voluntary-success-container h3 {
+    font-size: 15px;
+    color: var(--text-primary);
+    margin-bottom: 18px;
+    font-weight: 600;
+    text-align: left;
+}
+
+.thanks-message {
+    font-size: 14px;
+    color: var(--mancity-sky);
+    font-weight: 500;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--border-glow);
+    color: var(--text-primary);
+    margin-top: 10px;
+}
+
+.secondary-btn:hover {
+    background: var(--mancity-sky-dim);
+    color: var(--mancity-sky);
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(7, 11, 20, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Modal Content Box */
+.modal-content {
+    max-width: 650px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    animation: modalAppear 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalAppear {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.modal-close:hover {
+    color: var(--mancity-sky);
+}
+
+/* Modal body typography */
+.modal-body h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 10px;
+}
+
+.modal-body h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 10px;
+    color: var(--mancity-sky);
+}
+
+.modal-body p, .modal-body li {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.modal-body ul {
+    margin-left: 20px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.modal-body li {
+    margin-bottom: 6px;
 }
