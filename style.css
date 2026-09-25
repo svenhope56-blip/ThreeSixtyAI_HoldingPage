@@ -56,11 +56,12 @@ html, body {
     line-height: 1.45;
 }
 
-/* Page Container (Further Scaled Up) */
+/* Page Container */
 .page-container {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 14px 36px 12px;
     max-width: 1680px;
     margin: 0 auto;
@@ -382,11 +383,11 @@ html, body {
 
 /* Section 3: The AI Agent Triad */
 .agents-section {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: flex;
     flex-direction: column;
-    min-height: 0;
     gap: 8px;
+    margin: auto 0;
 }
 
 .agents-header-center {
@@ -429,13 +430,12 @@ html, body {
     line-height: 1.4;
 }
 
-/* 3 Cards Grid */
+/* 3 Cards Grid (Hugs Content Height) */
 .agent-triad-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
-    flex: 1 1 auto;
-    min-height: 0;
+    align-items: start;
 }
 
 .triad-card {
@@ -445,10 +445,9 @@ html, body {
     padding: 18px 22px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
     box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
-    min-height: 0;
-    overflow: hidden;
+    height: fit-content;
 }
 
 .triad-top {
