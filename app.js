@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const company = document.getElementById('company')?.value.trim();
             const role = document.getElementById('role')?.value.trim();
             const email = document.getElementById('email')?.value.trim();
-            const agree = document.getElementById('agree')?.checked;
             
             if (!name || name.length < 2) {
                 showError('Please enter your full name (minimum 2 characters).');
@@ -49,11 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
                 showError('Please enter a valid corporate email address.');
-                return;
-            }
-
-            if (!agree) {
-                showError('You must agree to the Terms and Privacy Policy.');
                 return;
             }
 
